@@ -7,6 +7,9 @@ arr = []
 def get_monthly(data):
     monthly_data = []
     for nav in data:
+        if int(nav["date"][len(nav["date"])-4:]) < (datetime.datetime.now().year - 5):
+            break
+            
         if nav["date"][:2] == '15':
             monthly_data.append(nav)
     return monthly_data
